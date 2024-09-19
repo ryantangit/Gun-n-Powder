@@ -1,6 +1,6 @@
 # Planit
 
-Planit is a web-based food recommendation program, leveraging computer vision and GenAI.
+Planit is a web-based food recipe recommendation program, leveraging computer vision and GenAI.
 
 # Problem Statement:
 Aimed specifically at young adults who are starting to live independently but may not have the skill and expertise to plan out food for themselves.
