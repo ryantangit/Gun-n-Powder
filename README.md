@@ -1,9 +1,13 @@
-# Planit
-
-Planit is a web-based food recipe recommendation program, leveraging computer vision and GenAI.
+# Gun n' Powder
+an Automated AI-Enhanced Penetration Testing Platform
 
 # Problem Statement:
-Aimed specifically at young adults who are starting to live independently but may not have the skill and expertise to plan out food for themselves.
+Build an AI-driven penetration testing platform that automates the simulation of cyber-attacks to identify system vulnerabilities in real time.
+Use OWASP vulnerability list to generate types of cyber-attacks.
 
 ## Persona:
-Gerald is an 18 years old who has recently been admitted into SJSU and is now living on his own. He has moved far away from home into a city where he now has to do everything for himself. Spaghetti and instant ramen are his daily diet and he is tired of eating them. While he goes grocery shopping occasionally, he struggles with planning out various meals with the ingredients he has in his fridge. He lacks the expertise and know-how to make diverse cuisines and doesn't want to spend money on eating out. So he takes a picture of the contents inside his refrigerator and uploads the image to the application. The application will then recommend a list of easy-to-make and diverse meals for Gerald.
+Tom is a beginner cybersecurity analyst and he has been tasked with finding Cross-Site-Scripting and SQL injections issues. These two vulnerabilities are very prevalent in modern times often showing up in OWASP top 10 vulnerabilities.
+The tool is designed to integrate AI with testing of these two vulnerabilities. 
+
+## Target:
+Juicebox - https://github.com/juice-shop/juice-shop
