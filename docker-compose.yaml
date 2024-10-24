@@ -1,0 +1,12 @@
+services:
+  backend:
+    build:
+      context: ./gun_n_powder_backend
+    ports:
+      - 8000:8000
+
+  frontend:
+    build:
+      context: ./gun_n_powder_frontend
+    ports:
+      - 3000:3000
