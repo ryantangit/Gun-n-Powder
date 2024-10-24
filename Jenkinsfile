@@ -18,10 +18,6 @@ pipeline {
         GIT_COMMIT_SHORT = sh(script: "git rev-parse --short HEAD", returnStdout: true).trim()
     }
 
-    options {
-        disableConcurrentBuilds()
-        buildDiscarder(logRotator(numToKeepStr: '10'))
-    }
 
     stages {
         stage('Checkout') {
@@ -127,9 +123,6 @@ pipeline {
         }
         success {
             echo 'Pipeline succeeded! Docker images built and pushed.'
-        }
-        always {
-            cleanWs()
         }
     }
 }
