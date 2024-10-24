@@ -7,7 +7,7 @@ pipeline {
     
     environment {
         // Docker Hub configuration
-        DOCKER_HUB_CREDENTIALS = credentials('dockerhub-credentials')
+        DOCKER_HUB_CREDENTIALS = credentials('docker_credentials')
         DOCKER_USERNAME = 'ryantandocker'
         FRONTEND_IMAGE = "${DOCKER_USERNAME}/gun-n-powder-frontend"
         BACKEND_IMAGE = "${DOCKER_USERNAME}/gun-n-powder-backend"
