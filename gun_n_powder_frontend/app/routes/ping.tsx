@@ -4,7 +4,7 @@ export default function Ping() {
   const [pong, setPong] = useState("");
   async function fetchPong() {
     try {
-      const res = await fetch("http://localhost:8000/api/ping/");
+      const res = await fetch("/api/ping/");
       const pong = await res.json();
       setPong(pong.message);
     } catch (error) {
