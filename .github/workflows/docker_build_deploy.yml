@@ -55,7 +55,7 @@ jobs:
             # Start new containers
             docker run -d \
               --name gun_n_powder_frontend \
-              -p 80:80 \
+              -p 3000:3000 \
               --restart unless-stopped \
               ${{ secrets.DOCKERHUB_USERNAME }}/gun_n_powder_frontend:latest
               
