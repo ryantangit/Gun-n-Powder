@@ -1,10 +1,11 @@
 import { useState } from "react";
+import { BACKEND_URL } from "~/constants";
 
 export default function Ping() {
   const [pong, setPong] = useState("");
   async function fetchPong() {
     try {
-      const res = await fetch("");
+      const res = await fetch(BACKEND_URL + "/api/ping");
       const pong = await res.json();
       setPong(pong.message);
     } catch (error) {
