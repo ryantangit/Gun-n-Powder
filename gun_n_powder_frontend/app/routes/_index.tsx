@@ -10,8 +10,12 @@ export const meta: MetaFunction = () => {
 
 export default function Index() {
   return (
-    <div className="flex h-screen items-center justify-center">
-      <Link to="/ping">Ping</Link>
+    <div className="flex h-screen items-center flex-col justify-center">
+      <h1 className="p-5"> Gun n Powder </h1>
+      <h1 className="p-5"> AI Enhanced Penetration Testing </h1>
+      <Link className="p-10" to="/login">
+        Get Started
+      </Link>
     </div>
   );
 }
