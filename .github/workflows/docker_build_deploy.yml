@@ -49,8 +49,8 @@ jobs:
             docker pull ${{ secrets.DOCKERHUB_USERNAME }}/gun_n_powder_backend:latest
 
             # Stop and remove existing containers
-            docker stop frontend gun_n_powder_backend || true
-            docker rm frontend gun_n_powder_backend || true
+            docker stop gun_n_powder_frontend gun_n_powder_backend || true
+            docker rm gun_n_powder_frontend  gun_n_powder_backend || true
 
             # Start new containers
             docker run -d \
