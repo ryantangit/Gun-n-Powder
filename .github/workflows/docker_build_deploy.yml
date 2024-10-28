@@ -63,10 +63,10 @@ jobs:
               --name gun_n_powder_backend \
               -p 8000:8000 \
               --restart unless-stopped \
-              -e DATABASE_NAME="{{ secrets.DATABASE_NAME }}" \
-              -e DATABASE_HOST="{{ secrets.EC2_HOST }}" \
-              -e DATABASE_USER="{{ secrets.DATABASE_USER }}" \
-              -e DATABASE_PASSWORD="{{ secrets.DATABASE_PASSWORD }}" \
+              -e DATABASE_NAME=${{ secrets.DATABASE_NAME }} \
+              -e DATABASE_HOST=${{ secrets.EC2_HOST }} \
+              -e DATABASE_USER=${{ secrets.DATABASE_USER }} \
+              -e DATABASE_PASSWORD=${{ secrets.DATABASE_PASSWORD }} \
               ${{ secrets.DOCKERHUB_USERNAME }}/gun_n_powder_backend:latest
 
             # Clean up old images
