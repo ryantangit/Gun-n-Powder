@@ -1,4 +1,4 @@
-import { Form } from "@remix-run/react";
+import { Form, Link } from "@remix-run/react";
 export default function Login() {
   return (
     <div>
@@ -14,6 +14,11 @@ export default function Login() {
         />
         <button>Sign In</button>
       </Form>
+
+      <div>
+        <p> If you do not have an account, make one </p>
+        <Link to="/signup"> here </Link>
+      </div>
     </div>
   );
 }
