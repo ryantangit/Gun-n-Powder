@@ -1,5 +1,5 @@
 import { ActionFunctionArgs } from "@remix-run/node";
-import { Form } from "@remix-run/react";
+import { Form, useActionData } from "@remix-run/react";
 import { BACKEND_URL } from "~/constants";
 
 export async function action({ request }: ActionFunctionArgs) {
@@ -15,14 +15,26 @@ export async function action({ request }: ActionFunctionArgs) {
         password: formData.get("password"),
       }),
     });
-    console.log(response);
+
+    const data = await response.json();
+    if (!response.ok) {
+      return { error: data.message || "Failed to create user." };
+    }
+
     return null;
   } catch (error) {
     console.error(error);
+    return { error: "An error occurred while creating the user." };
   }
 }
 
+interface ActionData {
+  error: string;
+}
+
 export default function SignUp() {
+  const actionData = useActionData<ActionData>();
+
   return (
     <div>
       <Form method="post">
@@ -32,6 +44,14 @@ export default function SignUp() {
         <input type="password" name="password" required />
         <button>Create Account</button>
       </Form>
+      {actionData?.error && (
+        <div
+          className="error-message"
+          style={{ color: "red", marginTop: "1em" }}
+        >
+          {actionData.error}
+        </div>
+      )}
     </div>
   );
 }
