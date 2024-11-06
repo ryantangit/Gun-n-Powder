@@ -3,7 +3,7 @@ import { useLoaderData } from "@remix-run/react";
 import { BACKEND_URL } from "~/constants";
 
 export const loader: LoaderFunction = async () => {
-  const response = await fetch(BACKEND_URL + "/api/username/", {
+  const response = await fetch(BACKEND_URL + "/api/userinfo/", {
     method: "GET",
     credentials: "include",
     headers: {
