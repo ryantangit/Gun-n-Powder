@@ -85,8 +85,8 @@ CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True
 
 # Session Cookie
-SESSION_COOKIE_SAMESITE = "None"  # Set to 'None' to allow cross-origin cookies
-CSRF_COOKIE_SAMESITE = "None"
+SESSION_COOKIE_SAMESITE = "Lax"  # Set to 'None' to allow cross-origin cookies
+CSRF_COOKIE_SAMESITE = "Lax"
 SESSION_COOKIE_SECURE = False  # Set to 'True' for production when using HTTPS
 CSRF_COOKIE_SECURE = False
 
