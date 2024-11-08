@@ -9,6 +9,7 @@ export const sessionIdSessionStorage = createCookieSessionStorage({
   },
 });
 
+//Data will be any type
 export function sessionCookie(data) {
   return Object.entries(data)
     .map(([key, value]) => `${key}=${value}`)
