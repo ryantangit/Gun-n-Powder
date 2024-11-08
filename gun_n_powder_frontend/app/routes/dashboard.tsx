@@ -2,6 +2,7 @@ import { json, LoaderFunction, redirect } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import { BACKEND_URL } from "~/constants";
 import { sessionCookie, sessionIdSessionStorage } from "~/session.server";
+import Navbar from "~/components/navbarComponent";
 
 export const loader: LoaderFunction = async ({ request }) => {
   const sessionIdSession = await sessionIdSessionStorage.getSession(
@@ -35,5 +36,10 @@ interface UserInfo {
 
 export default function Dashboard() {
   const userInfo = useLoaderData<UserInfo>();
-  return <p> Hello there {userInfo.username} </p>;
+  return (
+    <div>
+      <Navbar />
+      <p> Hello there {userInfo.username} </p>
+    </div>
+  );
 }
