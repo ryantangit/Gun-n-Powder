@@ -82,10 +82,14 @@ WSGI_APPLICATION = "gun_n_powder_backend.wsgi.application"
 # CORS
 # https://pypi.org/project/django-cors-headers/
 CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_CREDENTIALS = True
 
 # Session Cookie
-SESSION_COOKIE_SAMESITE = None  # Set to 'None' to allow cross-origin cookies
+SESSION_COOKIE_SAMESITE = "None"  # Set to 'None' to allow cross-origin cookies
+CSRF_COOKIE_SAMESITE = "None"
 SESSION_COOKIE_SECURE = False  # Set to 'True' for production when using HTTPS
+CSRF_COOKIE_SECURE = False
+
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
