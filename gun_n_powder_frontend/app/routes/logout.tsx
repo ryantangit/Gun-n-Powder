@@ -36,7 +36,7 @@ export default function LogoutRoute() {
       <Form method="post">
         <button>Logout</button>
       </Form>
-      <Link to="/">Never mind</Link>
+      <Link to="/dashboard">Never mind</Link>
     </>
   );
 }

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Navbar from "~/components/navbarComponent";
 import { BACKEND_URL } from "~/constants";
 
 export default function Ping() {
@@ -14,11 +15,14 @@ export default function Ping() {
   }
 
   return (
-    <div className="flex h-screen items-center justify-center">
-      <div className="flex flex-col items-center">
-        <p>This is the ping page.</p>
-        <button onClick={fetchPong}> Try Ping </button>
-        <p> {pong} </p>
+    <div>
+      <Navbar />
+      <div className="flex h-screen items-center justify-center">
+        <div className="flex flex-col items-center">
+          <p>This is the ping page.</p>
+          <button onClick={fetchPong}> Try Ping </button>
+          <p> {pong} </p>
+        </div>
       </div>
     </div>
   );

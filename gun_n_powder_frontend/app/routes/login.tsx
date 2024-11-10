@@ -32,7 +32,6 @@ export async function action({ request }: ActionFunctionArgs) {
     const parsedResponseCookies = setCookie.parse(
       setCookie.splitCookiesString(setCookieHeader)
     );
-    console.log(parsedResponseCookies);
     const sessionIdCookie = parsedResponseCookies.find(
       (cookie: Cookie) => cookie.name === "sessionid"
     );
