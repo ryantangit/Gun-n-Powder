@@ -3,6 +3,7 @@ import os
 from datetime import datetime
 from django.contrib.auth.decorators import login_required
 from django.http.response import JsonResponse
+from django.utils.autoreload import subprocess
 from django.views.decorators.csrf import csrf_exempt
 
 @login_required
@@ -14,13 +15,24 @@ def scan(request):
         targetUrl = data.get("url")
         # Do Scanning - results in file path/time
         name = generate_unique_name()
-        #
-        file_path = os.path.join("/container_zap", f"{name}.txt")
-        with open(file_path, "w") as f:
-            f.write(name)
+        reportName = name + ".html"
+        logName = name + ".txt"
+
+        reportPath = os.path.join("/container_zap", reportName)
+        logPath = os.path.join("/container_zap", logName)
+
+        command = [
+                    "docker", "run", "-v", "/container_zap:/zap/wrk/:rw", "-t", "zaproxy/zap-stable",
+                    "zap-baseline.py", "-t", targetUrl, "-r", reportPath
+        ]
+
+        with open(logPath, "w") as log:
+            result = subprocess.run(command, stdout=log, stderr=log)
+
+        status = "Scanning complete" if result.returncode == 0 else "Scanning failed"
 
         # Return status
-        return JsonResponse({"Status": "Scanning complete", "name": name})
+        return JsonResponse({"Status": status, "name": name})
 
 
 
