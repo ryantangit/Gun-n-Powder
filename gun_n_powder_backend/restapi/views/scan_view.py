@@ -22,7 +22,7 @@ def scan(request):
         logPath = os.path.join("/container_zap", logName)
 
         command = [
-                    "docker", "run", "-v", "/container_zap:/zap/wrk/:rw", "-t", "zaproxy/zap-stable",
+                    "docker", "run", "-v", "/container_zap:/zap/wrk/:rw", "-v", "/var/run/docker.sock:/var/run/docker.sock", "-t", "zaproxy/zap-stable",
                     "zap-baseline.py", "-t", targetUrl, "-r", reportPath
         ]
 
