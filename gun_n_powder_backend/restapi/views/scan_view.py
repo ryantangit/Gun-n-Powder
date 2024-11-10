@@ -1,7 +1,9 @@
 import json
 from datetime import datetime
 from django.http.response import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 
+@csrf_exempt
 def scan(request):
     if request.method == "POST":
         # Do some scanning
