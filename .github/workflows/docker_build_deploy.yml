@@ -58,7 +58,7 @@ jobs:
               -p 3000:3000 \
               --restart unless-stopped \
               ${{ secrets.DOCKERHUB_USERNAME }}/gun_n_powder_frontend:latest
-              
+
             docker run -d \
               --name gun_n_powder_backend \
               -p 8000:8000 \
@@ -67,6 +67,7 @@ jobs:
               -e DATABASE_HOST=${{ secrets.EC2_HOST }} \
               -e DATABASE_USER=${{ secrets.DATABASE_USER }} \
               -e DATABASE_PASSWORD=${{ secrets.DATABASE_PASSWORD }} \
+              -v ~/zap:/container_zap \
               ${{ secrets.DOCKERHUB_USERNAME }}/gun_n_powder_backend:latest
 
             # Clean up old images

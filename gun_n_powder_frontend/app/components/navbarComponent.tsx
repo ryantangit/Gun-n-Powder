@@ -13,6 +13,9 @@ export default function Navbar() {
         <Link to="/scan"> Scan </Link>
       </div>
       <div className="p-2">
+        <Link to="/logs"> Logs </Link>
+      </div>
+      <div className="p-2">
         <Link to="/logout"> Logout </Link>
       </div>
     </div>

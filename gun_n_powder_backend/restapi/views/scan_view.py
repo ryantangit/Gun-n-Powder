@@ -1,4 +1,5 @@
 import json
+import os
 from datetime import datetime
 from django.contrib.auth.decorators import login_required
 from django.http.response import JsonResponse
@@ -14,6 +15,9 @@ def scan(request):
         # Do Scanning - results in file path/time
         name = generate_unique_name()
         #
+        file_path = os.path.join("/container_zap", f"{name}.txt")
+        with open(file_path, "w") as f:
+            f.write(name)
 
         # Return status
         return JsonResponse({"Status": "Scanning complete", "name": name})
