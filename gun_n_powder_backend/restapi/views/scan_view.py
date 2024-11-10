@@ -1,8 +1,10 @@
 import json
 from datetime import datetime
+from django.contrib.auth.decorators import login_required
 from django.http.response import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 
+@login_required
 @csrf_exempt
 def scan(request):
     if request.method == "POST":
@@ -12,6 +14,8 @@ def scan(request):
         # Do Scanning - results in file path/time
         name = generate_unique_name()
         #
+
+        # Return status
         return JsonResponse({"Status": "Scanning complete", "name": name})
 
 
