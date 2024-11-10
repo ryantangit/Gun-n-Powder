@@ -12,7 +12,6 @@ export const loader: LoaderFunction = async ({ request }) => {
     // If it is not present, then the user has not been logged in.
     throw redirect("/login");
   }
-
   const response = await fetch(BACKEND_URL + "/api/userinfo/", {
     method: "GET",
     credentials: "include",
@@ -21,11 +20,9 @@ export const loader: LoaderFunction = async ({ request }) => {
       Cookie: sessionCookie(sessionIdSession.data),
     },
   });
-
   if (!response.ok) {
     throw new Response("Not logged in", { status: 401 });
   }
-
   const data = await response.json();
   return json({ username: data.username });
 };
