@@ -28,12 +28,12 @@ def scan(request):
             command=[
                 "zap-baseline.py",
                 "-t", targetUrl,
-                "-r", "/container_zap/" + reportName,
+                "-r", reportName,
                 "-I"
             ],
             volumes={
-                "/home/ubuntu/zap": {  # Map the host's ~/zap directory to /container_zap inside the container
-                    "bind": "/container_zap",
+                "/home/ubuntu/zap": {
+                    "bind": "/zap/wrk",
                     "mode": "rw"
                 }
             },
