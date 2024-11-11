@@ -28,7 +28,7 @@ def scan(request):
                         command=[
                             "zap-baseline.py",
                             "-t", targetUrl,
-                            "-r", "/zap/wrk/" + reportName,
+                            "-r", reportName,
                             "-I"
                         ],
                         volumes={
