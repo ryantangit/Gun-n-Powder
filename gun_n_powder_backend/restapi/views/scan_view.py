@@ -37,6 +37,7 @@ def scan(request):
                                 "mode": "rw"
                             }
                         },
+                        user="root",
                         detach=True
                     )
         result = container.wait()
