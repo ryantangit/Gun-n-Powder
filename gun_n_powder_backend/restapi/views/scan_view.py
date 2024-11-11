@@ -1,5 +1,6 @@
 import json
 import os
+import docker
 from datetime import datetime
 from django.contrib.auth.decorators import login_required
 from django.http.response import JsonResponse
@@ -21,15 +22,35 @@ def scan(request):
         reportPath = os.path.join("/container_zap", reportName)
         logPath = os.path.join("/container_zap", logName)
 
-        command = [
-                    "docker", "run", "-v", "/container_zap:/zap/wrk/:rw", "-v", "/var/run/docker.sock:/var/run/docker.sock", "-t", "zaproxy/zap-stable",
-                    "zap-baseline.py", "-t", targetUrl, "-r", reportPath
-        ]
+        client = docker.from_env()
+        container = client.containers.run(
+                        image="zaproxy/zap-stable",
+                        command=[
+                            "zap-baseline.py",
+                            "-t", targetUrl,
+                            "-r", "/zap/wrk/" + reportName,
+                            "-I"
+                        ],
+                        volumes={
+                            "/container_zap": {
+                                "bind": "/zap/wrk",
+                                "mode": "rw"
+                            }
+                        },
+                        detach=True
+                    )
+        result = container.wait()
+        logs = container.logs()
+        #Write logs to file
+        with open(logPath, "wb") as f:
+            f.write(logs)
+        container.remove()
+        if os.path.exists(reportPath):
+            status = "Scanning complete"
+        else:
+            status = "Scanning failed to generate report"
 
-        with open(logPath, "w") as log:
-            result = subprocess.run(command, stdout=log, stderr=log)
 
-        status = "Scanning complete" if result.returncode == 0 else "Scanning failed"
 
         # Return status
         return JsonResponse({"Status": status, "name": name})
