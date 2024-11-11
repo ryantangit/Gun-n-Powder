@@ -24,22 +24,22 @@ def scan(request):
 
         client = docker.from_env()
         container = client.containers.run(
-                        image="zaproxy/zap-stable",
-                        command=[
-                            "zap-baseline.py",
-                            "-t", targetUrl,
-                            "-r", reportName,
-                            "-I"
-                        ],
-                        volumes={
-                            "/container_zap": {
-                                "bind": "/zap/wrk",
-                                "mode": "rw"
-                            }
-                        },
-                        user="root",
-                        detach=True
-                    )
+            image="zaproxy/zap-stable",
+            command=[
+                "zap-baseline.py",
+                "-t", targetUrl,
+                "-r", "/container_zap/" + reportName,
+                "-I"
+            ],
+            volumes={
+                "~/zap": {  # Map the host's ~/zap directory to /container_zap inside the container
+                    "bind": "/container_zap",
+                    "mode": "rw"
+                }
+            },
+            user="root",  # Run as root
+            detach=True
+        )
         result = container.wait()
         logs = container.logs()
         #Write logs to file
