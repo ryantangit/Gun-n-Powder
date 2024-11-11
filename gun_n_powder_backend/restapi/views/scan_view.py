@@ -32,7 +32,7 @@ def scan(request):
                 "-I"
             ],
             volumes={
-                "~/zap": {  # Map the host's ~/zap directory to /container_zap inside the container
+                "/home/ubuntu/zap": {  # Map the host's ~/zap directory to /container_zap inside the container
                     "bind": "/container_zap",
                     "mode": "rw"
                 }
