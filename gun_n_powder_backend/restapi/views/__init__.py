@@ -4,3 +4,4 @@ from .logout_view import api_logout
 from .ping_views import ping
 from .user_view import get_username
 from .scan_view import scan
+from .logs_view import user_logs
