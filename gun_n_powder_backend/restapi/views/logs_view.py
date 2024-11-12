@@ -7,7 +7,7 @@ from django.http import JsonResponse
 @login_required
 def user_logs(request):
     # Get all scan logs for the currently logged-in user
-    scan_logs = ScanLog.objects.filter(user=request.user).order_by('-timestamp')[:10]
+    scan_logs = ScanLog.objects.filter(requester=request.user).order_by('-timestamp')[:10]
 
     scan_logs_data = [
             {
