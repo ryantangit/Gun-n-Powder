@@ -2,10 +2,12 @@ import json
 import os
 import docker
 from datetime import datetime
+from django.utils import timezone
 from django.contrib.auth.decorators import login_required
 from django.http.response import JsonResponse
 from django.utils.autoreload import subprocess
 from django.views.decorators.csrf import csrf_exempt
+from ..models import ScanLog
 
 @login_required
 @csrf_exempt
@@ -48,6 +50,12 @@ def scan(request):
         container.remove()
         if os.path.exists(reportPath):
             status = "Scanning complete"
+            scan_log = ScanLog.objects.create(
+                  requester=request.user,
+                  scan_name=name,
+                  url=targetUrl,
+                  timestamp=timezone.now()
+              )
         else:
             status = "Scanning failed to generate report"
 

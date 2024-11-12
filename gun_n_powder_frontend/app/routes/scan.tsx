@@ -53,7 +53,10 @@ export default function Scan() {
         <button>Scan</button>
       </Form>
       {loading && !scanStatus ? (
-        <p>Waiting for request...This may take a while</p>
+        <p>
+          Waiting for request...This may take up to 3 minutes... Do not close
+          the window
+        </p>
       ) : scanStatus ? (
         <p>{scanStatus.status}</p>
       ) : (
