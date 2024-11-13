@@ -17,5 +17,5 @@ def log_detail(request, filename):
                 return JsonResponse({"content": content})
         except FileNotFoundError:
             return HttpResponse("File not found".encode('utf-8'), status = 404)
-        except Exception as e
+        except Exception as e:
             return HttpResponse(f"Error: {e}".encode('utf-8'), status=500)
