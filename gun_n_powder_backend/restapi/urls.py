@@ -1,6 +1,6 @@
 from django.urls import path
 
-from .views import api_login, api_logout, create_user, get_username, ping, scan, user_logs, log_detail
+from .views import api_login, api_logout, create_user, get_username, ping, scan, user_logs, log_detail, grab_html
 
 urlpatterns = [
     path("ping/", ping, name="ping"),
@@ -11,4 +11,5 @@ urlpatterns = [
     path("scan/", scan, name="OWASP scan"),
     path("logs/", user_logs, name="scan logs"),
     path("logsinfo/", log_detail, name="log info"),
+    path("htmlinfo/", grab_html, name="html report"),
 ]
