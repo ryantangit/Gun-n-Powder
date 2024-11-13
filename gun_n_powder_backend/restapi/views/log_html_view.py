@@ -1,12 +1,9 @@
 
 import os
-
-
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
 
-@login_required
 @csrf_exempt
 def grab_html(request):
     if request.method == "GET":
