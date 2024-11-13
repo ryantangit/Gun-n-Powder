@@ -11,8 +11,8 @@ from rest_framework.views import csrf_exempt
 def log_detail(request):
     if request.method == "GET":
         data = json.loads(request.body)
-        filename = data.get("filename")
-        file_path = os.path.join("/container_zap", filename, ".txt")
+        scanname = request.GET.get("scanname")
+        file_path = os.path.join("/container_zap", scanname, ".txt")
         try:
             with open(file_path, "r") as file:
                 content = file.read()
