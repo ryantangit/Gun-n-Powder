@@ -6,3 +6,4 @@ from .user_view import get_username
 from .scan_view import scan
 from .logs_view import user_logs
 from .log_detail_view import log_detail
+from .log_html_view import grab_html
