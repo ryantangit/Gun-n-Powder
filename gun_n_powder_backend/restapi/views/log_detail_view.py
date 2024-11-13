@@ -1,6 +1,5 @@
 
 import os
-import json
 from django.contrib.auth.decorators import login_required
 from django.http.response import JsonResponse, HttpResponse
 from rest_framework.views import csrf_exempt
@@ -10,7 +9,6 @@ from rest_framework.views import csrf_exempt
 @login_required
 def log_detail(request):
     if request.method == "GET":
-        data = json.loads(request.body)
         scanname = request.GET.get("scanname")
         file_path = os.path.join("/container_zap", scanname, ".txt")
         try:
