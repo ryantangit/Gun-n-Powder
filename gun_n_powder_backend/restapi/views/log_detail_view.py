@@ -9,8 +9,8 @@ from rest_framework.views import csrf_exempt
 @login_required
 def log_detail(request):
     if request.method == "GET":
-        scanname = request.GET.get("scanname")
-        file_path = os.path.join("/container_zap", scanname, ".txt")
+        scanname = request.GET.get("scanname")+".txt"
+        file_path = os.path.join("/container_zap", scanname)
         try:
             with open(file_path, "r") as file:
                 content = file.read()
