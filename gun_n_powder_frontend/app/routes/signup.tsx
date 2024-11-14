@@ -38,6 +38,10 @@ export default function SignUp() {
   return (
     <div className="flex h-screen items-center justify-center bg-gray-300">
       <div className="w-full max-w-xs flex flex-col items-center space-y-8">
+        {/* Title Section */}
+        <div className="text-center mb-10">
+          <h1 className="text-4xl md:text-5xl font-light text-black">Create Account</h1>
+        </div>
         <Form method="post" className="w-full flex flex-col space-y-6">
           <label htmlFor="username" className="sr-only">
             Username
