@@ -25,3 +25,7 @@ Tom is a beginner cybersecurity analyst and he has been tasked with finding Cros
 - AI LLM: Gemini
 - Vulnerability Scanner: OWASP ZAP
 - Insecure Website: Juicebox - https://github.com/juice-shop/juice-shop
+
+## Running In Development
+- cd into frontend
+- run `npm run dev`

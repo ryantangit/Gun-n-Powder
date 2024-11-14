@@ -36,22 +36,42 @@ export default function SignUp() {
   const actionData = useActionData<ActionData>();
 
   return (
-    <div>
-      <Form method="post">
-        <label htmlFor="username">Username</label>
-        <input type="text" name="username" required />
-        <label htmlFor="password"> Password </label>
-        <input type="password" name="password" required />
-        <button>Create Account</button>
-      </Form>
-      {actionData?.error && (
-        <div
-          className="error-message"
-          style={{ color: "red", marginTop: "1em" }}
-        >
-          {actionData.error}
-        </div>
-      )}
+    <div className="flex h-screen items-center justify-center bg-gray-300">
+      <div className="w-full max-w-xs flex flex-col items-center space-y-8">
+        <Form method="post" className="w-full flex flex-col space-y-6">
+          <label htmlFor="username" className="sr-only">
+            Username
+          </label>
+          <input
+            type="text"
+            name="username"
+            placeholder="Username"
+            required
+            className="w-full px-4 py-3 text-lg font-light text-gray-700 bg-white border border-gray-700 rounded-md focus:outline-none"
+          />
+          <label htmlFor="password" className="sr-only">
+            Password
+          </label>
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            required
+            className="w-full px-4 py-3 text-lg font-light text-gray-700 bg-white border border-gray-700 rounded-md focus:outline-none"
+          />
+          <button
+            type="submit"
+            className="px-6 py-2 text-lg font-light text-gray-700 border border-gray-700 rounded-md hover:bg-gray-200 transition duration-300"
+          >
+            Create Account
+          </button>
+        </Form>
+        {actionData?.error && (
+          <div className="text-red-600 mt-4">
+            {actionData.error}
+          </div>
+        )}
+      </div>
     </div>
   );
 }
