@@ -14,7 +14,11 @@ export default function LogTab(props: ScanLogProps) {
       {props.url}
       {props.timestamp}
       <Link to={`/logs/${props.scanName}`}> View </Link>
-      <Link to={BACKEND_URL + `/api/htmlinfo?htmlinfo=${props.scanName}`}>
+      <Link
+        to={BACKEND_URL + `/api/htmlinfo/?scanname=${props.scanName}`}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         Detailed Report
       </Link>
     </div>
