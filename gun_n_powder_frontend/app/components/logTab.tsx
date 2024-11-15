@@ -21,6 +21,7 @@ export default function LogTab(props: ScanLogProps) {
       >
         Detailed Report
       </Link>
+      <Link to={`/ai/${props.scanName}`}>AI Insight</Link>
     </div>
   );
 }
