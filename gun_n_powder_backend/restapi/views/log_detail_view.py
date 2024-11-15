@@ -5,6 +5,7 @@ from django.http.response import JsonResponse, HttpResponse
 from rest_framework.views import csrf_exempt
 
 
+
 @csrf_exempt
 @login_required
 def log_detail(request):
