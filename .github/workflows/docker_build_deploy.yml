@@ -67,6 +67,7 @@ jobs:
               -e DATABASE_HOST=${{ secrets.EC2_HOST }} \
               -e DATABASE_USER=${{ secrets.DATABASE_USER }} \
               -e DATABASE_PASSWORD=${{ secrets.DATABASE_PASSWORD }} \
+              -e GOOGLE_LLM_API=${{secrets.GOOGLE_LLM_API}} \
               -v ~/zap:/container_zap \
               -v /var/run/docker.sock:/var/run/docker.sock \
               ${{ secrets.DOCKERHUB_USERNAME }}/gun_n_powder_backend:latest
