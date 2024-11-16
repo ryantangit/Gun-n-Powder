@@ -37,8 +37,17 @@ export default function Logs() {
     }>
   >();
   console.log(logs);
+  const styles = {
+    listItem: {
+      backgroundColor: 'white',
+      border: '1px solid black',    // Add border around each list item
+      padding: '10px',               // Add padding inside the box
+      marginBottom: '10px',          // Add space between list items
+      borderRadius: '5px'            // Rounded corners
+    }
+  };
   return (
-    <div>
+    <div style={{ paddingLeft: '20px', paddingRight: '20px' }} className="h-screen bg-gray-300">
       <Navbar />
       <ul>
         {logs.map(
@@ -46,7 +55,7 @@ export default function Logs() {
             log: { scan_name: string; url: string; timestamp: string },
             index: number
           ) => (
-            <li key={index}>
+            <li key={index} style={styles.listItem} className="px-6 py-2 font-light text-gray-700">
               <LogTab
                 scanName={log.scan_name}
                 url={log.url}
