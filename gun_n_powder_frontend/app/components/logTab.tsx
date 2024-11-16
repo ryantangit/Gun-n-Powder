@@ -22,7 +22,7 @@ export default function LogTab(props: ScanLogProps) {
     marginLeft: 'auto'             // Push the timestamp to the right
   },
   links: {
-    marginTop: '10px'              // Optional: space between the timestamp and the links
+    marginTop: '10px'              // Space between the timestamp and the links
   }
 };
 return (
@@ -30,7 +30,7 @@ return (
     <div style={styles.header}>
       <span>[{props.scanName}]&nbsp;&nbsp;</span>
       <span> {props.url}</span>
-      <span style={styles.timestamp}>{props.timestamp}</span> {/* Align timestamp to the right */}
+      <span style={styles.timestamp}>{props.timestamp}</span>
     </div>
     <div style={styles.links}>
       <Link to={`/logs/${props.scanName}`} className="hover:text-blue-500">View Log &nbsp;&nbsp;</Link>
