@@ -8,20 +8,42 @@ export interface ScanLogProps {
 }
 
 export default function LogTab(props: ScanLogProps) {
-  return (
-    <div>
-      {props.scanName}
-      {props.url}
-      {props.timestamp}
-      <Link to={`/logs/${props.scanName}`}> View </Link>
+  const styles = {
+  container: {
+    display: 'flex',
+    flexDirection: 'column'  // Stack content vertically
+  },
+  header: {
+    display: 'flex',
+    justifyContent: 'space-between', // Spread items across the row
+    alignItems: 'center'            // Vertically align items to the center
+  },
+  timestamp: {
+    marginLeft: 'auto'             // Push the timestamp to the right
+  },
+  links: {
+    marginTop: '10px'              // Optional: space between the timestamp and the links
+  }
+};
+return (
+  <div style={styles.container}>
+    <div style={styles.header}>
+      <span>[{props.scanName}]&nbsp;&nbsp;</span>
+      <span> {props.url}</span>
+      <span style={styles.timestamp}>{props.timestamp}</span> {/* Align timestamp to the right */}
+    </div>
+    <div style={styles.links}>
+      <Link to={`/logs/${props.scanName}`} className="hover:text-blue-500">View Log &nbsp;&nbsp;</Link>
       <Link
         to={BACKEND_URL + `/api/htmlinfo/?scanname=${props.scanName}`}
         target="_blank"
         rel="noopener noreferrer"
+        className="hover:text-blue-500"
       >
         Detailed Report
       </Link>
       <Link to={`/ai/${props.scanName}`}>AI Insight</Link>
     </div>
-  );
+  </div>
+);
 }
