@@ -34,9 +34,13 @@ interface UserInfo {
 export default function Dashboard() {
   const userInfo = useLoaderData<UserInfo>();
   return (
-    <div>
+    <div className=" h-screen bg-gray-300 ">
       <Navbar />
-      <p> Hello there {userInfo.username} </p>
+      <div className="flex items-center flex-col justify-center bg-gray-300 px-4 py-20">
+        <h3 className="text-2xl md:text-3xl font-light mb-5 text-black">Hello, <b>{userInfo.username}</b></h3>
+        <h3 className="text-2xl md:text-3xl font-light mb-5 text-black">Welcome to Gun n Powder</h3>
+      </div>
+
     </div>
   );
 }

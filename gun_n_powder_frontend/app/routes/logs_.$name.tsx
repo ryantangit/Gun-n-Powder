@@ -24,9 +24,11 @@ export const loader: LoaderFunction = async ({ request, params }) => {
 export default function LogDetails() {
   const report = useLoaderData<{ content: string }>();
   return (
-    <div className="bg-gray-300">
+    <div>
       <Navbar />
-      <pre style={{ whiteSpace: 'pre-wrap', paddingLeft: '20px', paddingRight: '20px' }}>{report.content}</pre>
+      <div className="bg-white border-spacing-1">
+        <pre style={{ whiteSpace: 'pre-wrap', padding: '20px' }}>{report.content}</pre>
+      </div>
     </div>
   );
 }
