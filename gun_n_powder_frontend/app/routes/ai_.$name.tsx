@@ -26,7 +26,9 @@ export default function AIDetails() {
   return (
     <div>
       <Navbar />
-      <pre style={{ whiteSpace: "pre-wrap" }}>{report.content}</pre>
+      <div className=" border-spacing-1">
+        <pre style={{ whiteSpace: "pre-wrap", padding: "20px" }}>{report.content}</pre>
+      </div>
     </div>
   );
 }

@@ -45,23 +45,31 @@ export default function Scan() {
   };
 
   return (
-    <div>
+    <div className="h-screen bg-gray-300">
       <Navbar />
-      <Form method="post" onSubmit={handleLoading}>
-        <label htmlFor="url">URL</label>
-        <input type="text" name="url" required />
-        <button>Scan</button>
-      </Form>
-      {loading && !scanStatus ? (
-        <p>
-          Waiting for request...This may take up to 3 minutes... Do not close
-          the window
-        </p>
-      ) : scanStatus ? (
-        <p>{scanStatus.status}</p>
-      ) : (
-        <p></p>
-      )}
+      <div className="flex items-center justify-center bg-gray-300 py-20">
+
+        <div className="w-full max-w-xs flex flex-col items-center space-y-8">
+
+          <Form method="post" onSubmit={handleLoading} className="w-full flex flex-col space-y-6">
+            <label htmlFor="url" className="sr-only">URL</label>
+            <input type="text" name="url" placeholder="URL" required
+              className="w-full px-4 py-3 text-lg font-light text-gray-700 bg-white border border-gray-700 rounded-md focus:outline-none"
+            />
+            <button className="px-6 py-2 text-lg font-light text-gray-700 border border-gray-700 rounded-md hover:bg-gray-200 transition duration-300">Scan</button>
+          </Form>
+          {loading && !scanStatus ? (
+            <p>
+              Waiting for request...This may take up to 3 minutes... Do not close
+              the window
+            </p>
+          ) : scanStatus ? (
+            <p>{scanStatus.status}</p>
+          ) : (
+            <p></p>
+          )}
+        </div>
+      </div>
     </div>
   );
 }
