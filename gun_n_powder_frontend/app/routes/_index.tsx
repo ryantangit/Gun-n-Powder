@@ -14,6 +14,13 @@ export default function Index() {
       <div className="flex-1 flex items-center flex-col justify-center bg-gray-300 px-4 py-10">
         <h1 className="text-4xl md:text-6xl font-light mb-10 text-black text-center">Gun n Powder</h1>
         <h2 className="text-xl md:text-2xl font-light mb-20 text-black text-center">AI Enhanced Penetration Testing</h2>
+
+        <Link
+          className="px-6 py-2 text-lg text-gray-700 border border-gray-700 rounded-md hover:bg-gray-200 transition duration-300 mb-24"
+          to="/login"
+        >
+          Get Started
+        </Link>
         
         {/* Expanded section for software highlights in columns */}
         <div className="text-center px-10 mb-10">
@@ -66,13 +73,6 @@ export default function Index() {
             Gun n Powder is more than just a security tool; it's a strategic partner in your organization's defense strategy, helping you maintain customer trust, protect valuable data, and confidently operate in a secure digital landscape.
           </p>
         </div>
-
-        <Link
-          className="px-6 py-2 text-lg text-gray-700 border border-gray-700 rounded-md hover:bg-gray-200 transition duration-300 mb-24"
-          to="/login"
-        >
-          Get Started
-        </Link>
       </div>
 
       {/* Bottom Section with About Us and Contact Info */}
