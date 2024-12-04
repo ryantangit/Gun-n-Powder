@@ -12,19 +12,16 @@ Tom is a beginner cybersecurity analyst and he has been tasked with finding Cros
 
 ## Architecture Diagram
 
-![Block Diagram](./Block_Diagram.png)
+![Block Diagram](./Block_Diagram.png) 
 
 ## Technology:
 
 - Frontend: React
 - Backend: Django Rest API
 - Databse: Postgre SQL
-- Message Queue: Apache Kafka
-- CICD: Jenkins, Github
-- Observability: Prometheus
+- CICD: Github Action
 - AI LLM: Gemini
 - Vulnerability Scanner: OWASP ZAP
-- Insecure Website: Juicebox - https://github.com/juice-shop/juice-shop
 
 ## Running In Development
 - cd into frontend
