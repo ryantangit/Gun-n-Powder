@@ -8,7 +8,7 @@ Build an AI-driven penetration testing platform that automates the simulation of
 
 ## Persona:
 
-Tom is a beginner cybersecurity analyst and he has been tasked with finding vulnerabilities. Tom is familiar with some of the vulnerabilities but he doesn't know how to initiate scanning to look for them. He would like something that can simplify the process of finding vulerabilities. The tool is designed to integrate AI with penetration testing of this vulnerability.
+Tom is a junior cybersecurity analyst and he has been tasked with finding vulnerabilities. Tom is familiar with some of the vulnerabilities but he doesn't know how to initiate scanning to look for them. He would like something that can simplify the process of finding vulerabilities. The tool is designed to integrate AI with penetration testing of this vulnerability.
 
 ## Architecture Diagram
 
